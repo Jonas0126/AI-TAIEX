@@ -1,0 +1,96 @@
+# Linear Regression config file example
+
+train dates:
+    start: '2008-01-01'
+    end: '2019-12-31'
+test dates:
+    start: '2020-01-01'
+    end: '2020-12-31'
+trade dates:
+    start: '2021-01'
+    end: '2021-12'
+
+model: LR
+target name: SP500
+futures name: E-miniSP500
+futures rule:
+    fixed months:
+        - 3
+        - 6
+        - 9
+        - 12
+    total front month: 0
+    delivery week: 3
+    delivery weekday: 4
+predict range: 3
+
+features:
+    'ES=F': 'E-miniSP500'
+    '^GSPC': 'SP500'
+    '^AORD': 'All Ordinaries'
+    '^AXJO': 'S&P ASX 200'
+    '^N225': 'Nikkei 225'
+    '^KS11': 'KOSPI Composite Index'
+    '^TWII': 'Taiex'
+    '000001.SS': 'SSE Composite Index'
+    '000002.SS': 'SSE A Share Index'
+    '399001.SZ': 'Shenzhen Index'
+    '^HSI': 'HANG SENG INDEX'
+    '^KLSE': 'FTSE Bursa Malaysia KLCI'
+    '^STI': 'STI Index'
+    'PSEI.PS': 'PSEi INDEX'
+    '^JKSE': 'Jakarta Composite Index'
+    '^BSESN': 'S&P BSE SENSEX'
+    '^FTSE': 'FTSE 100'
+    '^GDAXI': 'DAX PERFORMANCE-INDEX'
+    '^FCHI': 'CAC 40'
+    '^SSMI': 'SMI PR'
+    '^DJI': 'Dow Jones Industrial Average'
+    '^IXIC': 'NASDAQ Composite'
+    '^SOX': 'PHLX Semiconductor'
+    '^GSPTSE': 'S&P TSX Composite index'
+    '^MXX': 'IPC MEXICO'
+    '^BVSP': 'IBOVESPA'
+    '^IRX': '13 Week Treasury Bill'
+    '^TYX': 'Treasury Yield 30 Years'
+    '^FVX': 'Treasury Yield 5 Years'
+    '^TNX': 'Treasury Yield 10 Years'
+    '^VIX': 'CBOE Volatility Index'
+    'MSCI': 'MSCI Inc.'
+    'CL=F': 'CrudeOil'
+    'HO=F': 'HeatingOil'
+    'NG=F': 'NaturalGas'
+    'GC=F': 'Gold'
+    'PL=F': 'Platinum'
+    'SI=F': 'Silver'
+    'HG=F': 'Copper'
+    'PA=F': 'Palladium'
+
+hyperparameters: null
+
+preprocessing:
+    correlations:
+        - null
+        - 0.3
+        - 0.5
+        - 0.7
+    scaling: 
+        - False
+        - True
+    pca:
+        - True
+        - False
+
+trading:
+    types:
+        - long
+        - short
+        - longorshort
+    stop loss:
+        - False
+        - True
+    tolerance:
+        - 50
+        - 100
+        - 150
+        - 200

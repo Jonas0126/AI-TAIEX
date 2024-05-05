@@ -1,0 +1,108 @@
+# LSTM config file example
+
+train dates:
+    start: '2008-01-01'
+    end: '2020-12-31'
+test dates:
+    start: '2021-01-01'
+    end: '2021-12-31'
+trade dates:
+    start: '2022-01'
+    end: '2022-12'
+
+model: LSTM
+target name: Taiex
+futures name: MTX
+futures rule:
+    fixed months:
+        - 3
+        - 6
+        - 9
+        - 12
+    total front month: 3
+    delivery week: 3
+    delivery weekday: 3
+predict range: 3
+
+features:
+    '^AORD': 'AORD'
+    '^AXJO': 'AXJO'
+    '^N225': 'N225'
+    '^KS11': 'KOSPI'
+    '^TWII': 'Taiex'
+    '000001.SS': 'SSE'
+    '000002.SS': 'SSEA'
+    '399001.SZ': 'SZSE'
+    '^HSI': 'HSI'
+    '^KLSE': 'KLSE'
+    '^STI': 'STI'
+    'PSEI.PS': 'PSEI'
+    '^JKSE': 'JKSE'
+    '^BSESN': 'BSESN'
+    '^FTSE': 'FTSE'
+    '^GDAXI': 'GDAXI'
+    '^FCHI': 'FCHI'
+    '^SSMI': 'SSMI'
+    '^DJI': 'DJI'
+    '^GSPC': 'GSPC'
+    '^IXIC': 'IXIC'
+    '^SOX': 'SOX'
+    '^GSPTSE': 'GSPTSE'
+    '^MXX': 'MXX'
+    '^BVSP': 'BVSP'
+    '^IRX': 'IRX'
+    '^TYX': 'TYX'
+    '^FVX': 'FVX'
+    '^TNX': 'TNX'
+    'TSM': 'TSM'
+    '^VIX': 'VIX'
+    'MSCI': 'MSCI'
+    'CL=F': 'CrudeOil'
+    'HO=F': 'HeatingOil'
+    'NG=F': 'NaturalGas'
+    'GC=F': 'Gold'
+    'PL=F': 'Platinum'
+    'SI=F': 'Silver'
+    'HG=F': 'Copper'
+    'PA=F': 'Palladium'
+    'TWD=X': 'USDExchangeRate'
+    'TWDUSD=X': 'TWDExchangeRate'
+    'TWDCNY=X': 'CNYExchangeRate'
+    'TWDJPY=X': 'JPYExchangeRate'
+    'TWDHKD=X': 'HKDExchangeRate'
+    'TWDKRW=X': 'KRWExchangeRate'
+    'EURTWD=X': 'EURExchangeRate'
+    'TWDCAD=X': 'CADExchangeRate'
+
+hyperparameters:
+    lookbacks:
+        - 66
+        - 132
+        - 264
+        - 396
+        - 528
+        - 660
+        - 792
+
+preprocessing:
+    correlations:
+        - null
+    scaling: 
+        - True
+    pca:
+        - True
+        - False
+
+trading:
+    types:
+        - long
+        - short
+        - longorshort
+    stop loss:
+        - False
+        - True
+    tolerance:
+        - 50
+        - 100
+        - 150
+        - 200
